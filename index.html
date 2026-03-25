@@ -8,11 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES DE DISEÑO (Para fácil mantenimiento) --- */
         :root {
-            --color-primario: #111827; /* Azul grisáceo muy oscuro (Fondo Hero) */
-            --color-secundario: #ffffff; /* Blanco */
-            --color-acento: #2563eb; /* Azul vibrante (Tecnológico) */
+            --color-primario: #111827; 
+            --color-secundario: #ffffff; 
+            --color-acento: #2563eb; 
             --color-texto-principal: #1f2937;
             --color-texto-secundario: #4b5563;
             --color-fondo-seccion: #f3f4f6;
@@ -22,7 +21,6 @@
             --sombra-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        /* --- ESTILOS GENERALES --- */
         * { box-sizing: border-box; }
         body {
             font-family: var(--fuente-cuerpo);
@@ -37,6 +35,8 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
+        
+        /* --- TÍTULOS LIMPIOS SIN CONFLICTOS --- */
         h1, h2, h3 {
             font-family: var(--fuente-titulos);
             font-weight: 700;
@@ -48,9 +48,6 @@
             margin-bottom: 3rem;
             color: var(--color-primario);
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
         h2::after {
             content: '';
@@ -62,10 +59,8 @@
             border-radius: 2px;
         }
 
-        /* --- SECTION GENÉRICA --- */
         section { padding: 5rem 0; }
 
-        /* --- HERO SECTION (LA GRAN MEJORA VISUAL) --- */
         header {
             background-color: var(--color-primario);
             color: var(--color-secundario);
@@ -88,7 +83,7 @@
             height: 250px;
             border-radius: 50%;
             border: 8px solid rgba(255,255,255,0.1);
-            object-fit: cover; /* Asegura que la foto no se estire */
+            object-fit: cover;
             box-shadow: var(--sombra);
         }
         header h1 {
@@ -104,10 +99,7 @@
             margin-bottom: 2rem;
         }
 
-        /* --- SOBRE MÍ (DESCRIPCIÓN MEJORADA) --- */
-        #sobre-mi {
-            background-color: #ffffff;
-        }
+        #sobre-mi { background-color: #ffffff; }
         .about-content p {
             font-size: 1.15rem;
             color: var(--color-texto-secundario);
@@ -116,10 +108,7 @@
             text-align: center;
         }
 
-        /* --- PROYECTOS (ESTILO DE TARJETAS MODERNO) --- */
-        #proyectos {
-            background-color: var(--color-fondo-seccion);
-        }
+        #proyectos { background-color: var(--color-fondo-seccion); }
         .grid-proyectos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -161,16 +150,17 @@
             margin-bottom: 5px;
         }
 
-        /* --- LADO HUMANO (ASTRONOMÍA Y FÚTBOL) --- */
-        #lado-humano {
-            background-color: #ffffff;
-            text-align: center;
-        }
+        /* --- LADO HUMANO CON FLEXBOX CORRECTO --- */
+        #lado-humano { background-color: #ffffff; }
         .human-content {
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
             color: var(--color-texto-secundario);
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
         }
         .icon-row {
             font-size: 3rem;
@@ -178,7 +168,6 @@
             color: var(--color-acento);
         }
 
-        /* --- FOOTER Y ENLACES --- */
         footer {
             background-color: var(--color-primario);
             color: var(--color-secundario);
@@ -213,10 +202,9 @@
             border-color: rgba(255,255,255,0.3);
         }
 
-        /* --- RESPONSIVIDAD (Celulares) --- */
         @media (max-width: 768px) {
             .hero-container {
-                flex-direction: column-reverse; /* Foto arriba, texto abajo en celular */
+                flex-direction: column-reverse;
                 text-align: center;
                 gap: 2rem;
             }
@@ -259,7 +247,7 @@
                 <div class="grid-proyectos">
                     
                     <div class="tarjeta-proyecto">
-                        <h3>Cirve Face Match</h3>
+                        <h3>Face Match</h3>
                         <p>Desarrollo y despliegue de un sistema avanzado de reconocimiento facial centrado en la privacidad y la precisión. Optimizado para verificación de identidad y combate a la suplantación de identidad.</p>
                         <div class="tags-container">
                             <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">InsightFace</span><span class="tag">Biometría</span>
@@ -290,7 +278,7 @@
             <div class="container human-content">
                 <h2>Equilibrio Creativo</h2>
                 <div class="icon-row">⚽ ⭐ 🌌</div>
-                <p>Creo que una mente analítica se nutre de la vida activa y la curiosidad. Cuando no estoy estructurando modelos de IA o dando clases, probablemente me encuentres en la cancha jugando un partido de fútbol o aprovechando la oscuridad de la noche para observar el cosmos a través de mi telescopio.</p>
+                <p>Creo que una mente analítica se nutre de la vida activa y la curiosidad. Cuando no estoy estructurando modelos de IA o dando clases, probablemente me encuentres en la cancha jugando un partido de fútbol o viendo algo divertido en TikTok o Instagram.</p>
             </div>
         </section>
 
@@ -305,7 +293,7 @@
                 <a href="https://medium.com/@jesusvzquez" class="boton boton-secundario" target="_blank">Mis Artículos Técnicos</a>
                 <a href="https://www.instagram.com/jesusm_vazquezn/?hl=es" class="boton boton-secundario" target="_blank">Instagram (Más allá del código)</a>
             </div>
-            <p style="font-size: 0.9rem; color: #9ca3af;">&copy; Jesús Manuel. Todos los derechos reservados.</p>
+            <p style="font-size: 0.9rem; color: #9ca3af;">&copy; 2026 Jesús Manuel. Todos los derechos reservados.</p>
         </div>
     </footer>
 
