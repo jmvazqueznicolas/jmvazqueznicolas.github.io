@@ -3,147 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesús Manuel | Especialista en IA</title>
+    <title>Jesús Manuel | Puenteando Academia e Industria en IA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Estilos generales limpios y modernos */
+        /* --- VARIABLES DE DISEÑO (Para fácil mantenimiento) --- */
+        :root {
+            --color-primario: #111827; /* Azul grisáceo muy oscuro (Fondo Hero) */
+            --color-secundario: #ffffff; /* Blanco */
+            --color-acento: #2563eb; /* Azul vibrante (Tecnológico) */
+            --color-texto-principal: #1f2937;
+            --color-texto-secundario: #4b5563;
+            --color-fondo-seccion: #f3f4f6;
+            --fuente-titulos: 'Poppins', sans-serif;
+            --fuente-cuerpo: 'Open Sans', sans-serif;
+            --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --sombra-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: var(--fuente-cuerpo);
+            line-height: 1.7;
+            color: var(--color-texto-principal);
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #ffffff;
         }
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
+        h1, h2, h3 {
+            font-family: var(--fuente-titulos);
+            font-weight: 700;
+            margin-top: 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--color-primario);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-acento);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- SECTION GENÉRICA --- */
+        section { padding: 5rem 0; }
+
+        /* --- HERO SECTION (LA GRAN MEJORA VISUAL) --- */
         header {
-            background-color: #1a202c;
-            color: #ffffff;
+            background-color: var(--color-primario);
+            color: var(--color-secundario);
+            padding: 6rem 0;
+            display: flex;
+            align-items: center;
+        }
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .hero-text { flex: 2; }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.1);
+            object-fit: cover; /* Asegura que la foto no se estire */
+            box-shadow: var(--sombra);
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        header h1 span { color: var(--color-acento); }
+        header p.lead {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        /* --- SOBRE MÍ (DESCRIPCIÓN MEJORADA) --- */
+        #sobre-mi {
+            background-color: #ffffff;
+        }
+        .about-content p {
+            font-size: 1.15rem;
+            color: var(--color-texto-secundario);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            text-align: center;
+        }
+
+        /* --- PROYECTOS (ESTILO DE TARJETAS MODERNO) --- */
+        #proyectos {
+            background-color: var(--color-fondo-seccion);
+        }
+        .grid-proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .tarjeta-proyecto {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .tarjeta-proyecto:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-hover);
+        }
+        .tarjeta-proyecto h3 {
+            color: var(--color-acento);
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .tarjeta-proyecto p {
+            color: var(--color-texto-secundario);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* --- LADO HUMANO (ASTRONOMÍA Y FÚTBOL) --- */
+        #lado-humano {
+            background-color: #ffffff;
+            text-align: center;
+        }
+        .human-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--color-texto-secundario);
+        }
+        .icon-row {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-acento);
+        }
+
+        /* --- FOOTER Y ENLACES --- */
+        footer {
+            background-color: var(--color-primario);
+            color: var(--color-secundario);
             padding: 4rem 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-            color: #a0aec0;
-            margin-top: 10px;
-        }
-        section {
-            background: #ffffff;
-            margin: 2rem 0;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        h2 {
-            color: #2d3748;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
-        /* Cuadrícula para los proyectos */
-        .grid-proyectos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .tarjeta-proyecto {
-            background: #f7fafc;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-        }
-        .tarjeta-proyecto h3 {
-            margin-top: 0;
-            color: #2b6cb0;
-        }
-        /* Botones y enlaces */
-        .enlaces-contacto {
-            text-align: center;
-            margin-top: 2rem;
-        }
+        .enlaces-contacto { margin-bottom: 2rem; }
         .boton {
             display: inline-block;
-            background: #2b6cb0;
+            background-color: var(--color-acento);
             color: #ffffff;
-            padding: 10px 24px;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             margin: 0 10px;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            font-weight: 600;
+            font-family: var(--fuente-titulos);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: var(--sombra);
         }
         .boton:hover {
-            background: #2c5282;
+            background-color: #1d4ed8;
+            transform: scale(1.05);
         }
         .boton-secundario {
-            background: #4a5568;
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: none;
         }
         .boton-secundario:hover {
-            background: #2d3748;
+            background-color: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* --- RESPONSIVIDAD (Celulares) --- */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column-reverse; /* Foto arriba, texto abajo en celular */
+                text-align: center;
+                gap: 2rem;
+            }
+            header h1 { font-size: 2.5rem; }
+            header p.lead { font-size: 1.2rem; }
+            .hero-image img { width: 180px; height: 180px; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 3rem 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <h1>Jesús Manuel</h1>
-            <p>Especialista en Inteligencia Artificial | Docente Universitario | Fundador Tecnológico</p>
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Jesús <span>Manuel</span></h1>
+                <p class="lead">Transformando rigor académico en soluciones reales de Inteligencia Artificial.</p>
+                <p>Docente Universitario | Especialista en IA </p>
+            </div>
+            <div class="hero-image">
+                <img src="perfil.jpg" alt="Jesús Manuel - Especialista en IA">
+            </div>
         </div>
     </header>
 
-    <div class="container">
+    <div class="main-content">
         
         <section id="sobre-mi">
-            <h2>Sobre mí</h2>
-            <p>Con más de 10 años de trayectoria en Inteligencia Artificial y 5 años de experiencia en la industria, me dedico a construir el puente entre la rigurosidad académica y el desarrollo de productos tecnológicos. </p>
-            <p>Actualmente imparto clases sobre Deep Learning y Machine Learning a nivel universitario, mientras lidero el desarrollo técnico en mi empresa, Cirve, enfocándonos en soluciones de software de alto impacto y consultoría tecnológica.</p>
+            <div class="container about-content">
+                <h2>Liderando la Innovación Técnica</h2>
+                <p>Con una década formando el talento tecnológico del futuro en la universidad y cinco años desarrollando productos de IA aplicados en la industria real, ofrezco una perspectiva única: el rigor técnico necesario para que las soluciones funcionen y el enfoque de negocio necesario para que generen impacto.</p>
+                <p>Convierto la teoría en software robusto, especialmente en áreas de visión computacional y sistemas de IA de alto rendimiento.</p>
+            </div>
         </section>
 
         <section id="proyectos">
-            <h2>Proyectos Destacados</h2>
-            <div class="grid-proyectos">
-                
-                <div class="tarjeta-proyecto">
-                    <h3>Visión Computacional Aplicada</h3>
-                    <p>Desarrollo de herramientas de reconocimiento facial (Face Match) utilizando Python, Streamlit e InsightFace para optimizar la verificación de identidad y combatir la desinformación.</p>
-                </div>
+            <div class="container">
+                <h2>Impacto a través de la Ejecución</h2>
+                <div class="grid-proyectos">
+                    
+                    <div class="tarjeta-proyecto">
+                        <h3>Cirve Face Match</h3>
+                        <p>Desarrollo y despliegue de un sistema avanzado de reconocimiento facial centrado en la privacidad y la precisión. Optimizado para verificación de identidad y combate a la suplantación de identidad.</p>
+                        <div class="tags-container">
+                            <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">InsightFace</span><span class="tag">Biometría</span>
+                        </div>
+                    </div>
 
-                <div class="tarjeta-proyecto">
-                    <h3>Simulación de VANTs con IA</h3>
-                    <p>Diseño y simulación de vehículos aéreos no tripulados inteligentes, integrando entornos virtuales con ROS, Gazebo y algoritmos de autonomía.</p>
-                </div>
+                    <div class="tarjeta-proyecto">
+                        <h3>Autonomía en VANTs</h3>
+                        <p>Diseño y simulación de vehículos aéreos no tripulados inteligentes. Integración de algoritmos de navegación autónoma y visión computacional en entornos de simulación realistas.</p>
+                        <div class="tags-container">
+                            <span class="tag">IA</span><span class="tag">Drones</span><span class="tag">ROS</span><span class="tag">Gazebo</span>
+                        </div>
+                    </div>
 
-                <div class="tarjeta-proyecto">
-                    <h3>Machine Learning Educativo</h3>
-                    <p>Creación de temarios y proyectos prácticos orientados a la detección de amenazas informáticas, formando a la próxima generación de desarrolladores.</p>
-                </div>
+                    <div class="tarjeta-proyecto">
+                        <h3>Formación Avanzada en IA</h3>
+                        <p>Liderazgo de cátedras universitarias sobre Deep Learning y Machine Learning aplicado a la seguridad informática. Diseño de currículos prácticos que preparan a desarrolladores para retos industriales.</p>
+                        <div class="tags-container">
+                            <span class="tag">Educación</span><span class="tag">Deep Learning</span><span class="tag">Ciberseguridad</span>
+                        </div>
+                    </div>
 
+                </div>
             </div>
         </section>
 
         <section id="lado-humano">
-            <h2>Más allá del código</h2>
-            <p>Creo firmemente que la creatividad técnica se alimenta de una vida equilibrada. Cuando no estoy estructurando modelos de IA o dando clases, probablemente me encuentres en la cancha jugando como defensa en un partido de fútbol, o aprovechando un cielo despejado para practicar mi afición por la astronomía amateur.</p>
+            <div class="container human-content">
+                <h2>Equilibrio Creativo</h2>
+                <div class="icon-row">⚽ ⭐ 🌌</div>
+                <p>Creo que una mente analítica se nutre de la vida activa y la curiosidad. Cuando no estoy estructurando modelos de IA o dando clases, probablemente me encuentres en la cancha jugando un partido de fútbol o aprovechando la oscuridad de la noche para observar el cosmos a través de mi telescopio.</p>
+            </div>
         </section>
-
-        <div class="enlaces-contacto">
-            <a href="https://www.linkedin.com/in/jes%C3%BAs-manuel-v%C3%A1zquez-nicol%C3%A1s-08a05861/" class="boton" target="_blank">Conectar en LinkedIn</a>
-            <a href="https://medium.com/@jesusvzquez" class="boton boton-secundario" target="_blank">Leer mi Medium</a>
-            <a href="https://www.instagram.com/jesusm_vazquezn/?hl=es" class="boton boton-secundario" target="_blank">Mi lado humano (Instagram)</a>
-        </div>
 
     </div>
 
-    <br><br>
+    <footer>
+        <div class="container">
+            <div class="enlaces-contacto">
+                <p>¿Interesado en colaborar, aprender o implementar IA?</p>
+                <br>
+                <a href="https://www.linkedin.com/in/jes%C3%BAs-manuel-v%C3%A1zquez-nicol%C3%A1s-08a05861/" class="boton" target="_blank">LinkedIn Profesional</a>
+                <a href="https://medium.com/@jesusvzquez" class="boton boton-secundario" target="_blank">Mis Artículos Técnicos</a>
+                <a href="https://www.instagram.com/jesusm_vazquezn/?hl=es" class="boton boton-secundario" target="_blank">Instagram (Más allá del código)</a>
+            </div>
+            <p style="font-size: 0.9rem; color: #9ca3af;">&copy; Jesús Manuel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
